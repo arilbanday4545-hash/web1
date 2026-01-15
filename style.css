@@ -1,0 +1,295 @@
+:root {
+  --bg-dark: #060709;
+  --card-bg: #0d1117;
+  --accent: #00d2ff;
+  --accent-2: #9d50bb;
+  --text-secondary: #8b949e;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: #ffffff;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(0, 210, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: -1;
+}
+
+.navbar {
+  background: rgba(6, 7, 9, 0.85) !important;
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 12px 0;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-dark); /* Warna dasar hitam jika foto habis */
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, var(--bg-dark) 90%), url('img/mapia.jpg');
+    background-repeat: no-repeat;
+    background-position: top center; /* Foto dimulai dari atas */
+    background-size: cover; /* Default untuk PC */
+}
+
+/* KHUSUS HP - AGAR SEMUA ORANG KELIHATAN */
+@media (max-width: 768px) {
+    .hero {
+        /* Memaksa lebar foto 100% layar HP, tingginya otomatis (biar gak kepotong) */
+        background-size: 100% auto; 
+        background-position: top center;
+        /* Tambah padding atas agar teks tidak menutupi muka orang di foto */
+        padding-top: 60vh; 
+        align-items: flex-start;
+    }
+    
+    .main-title {
+        font-size: 1.8rem;
+        background: rgba(6, 7, 9, 0.7); /* Kasih background gelap tipis di belakang teks agar terbaca */
+        padding: 10px;
+        border-radius: 10px;
+    }
+}
+
+.main-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+.sub-title {
+  font-size: clamp(1rem, 3vw, 1.4rem);
+  font-weight: 600;
+}
+.hero-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  max-width: 450px;
+}
+.text-gradient {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.section-tag {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 10px;
+}
+
+section {
+  padding: 150px 0;
+}
+
+.glass-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 30px;
+  transition: 0.3s;
+  height: 100%;
+}
+.glass-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent);
+}
+
+.project-card {
+  border-radius: 15px;
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: 0.3s;
+  height: 100%;
+}
+.project-img {
+    width: 100%;
+    height: auto; /* Ubah dari fixed height ke auto agar proporsional */
+    aspect-ratio: 16 / 9; /* Mengunci bentuk foto tetap wide/persegi panjang yang rapi */
+    object-fit: cover; /* Menjamin gambar memenuhi kotak tanpa gepeng */
+    transition: 0.5s;
+}
+.project-card:hover .project-img {
+  transform: scale(1.1);
+}
+.btn-web {
+  padding: 6px 15px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 0.7rem;
+  font-weight: 700;
+  transition: 0.3s;
+}
+.btn-web:hover {
+  background: var(--accent);
+  color: #000;
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.faq-box {
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 30px;
+}
+.faq-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 15px;
+}
+.faq-item h6 {
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.social-box {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+.social-link {
+  font-size: 2.2rem;
+  color: #fff;
+  transition: 0.3s;
+}
+.social-link:hover {
+  transform: scale(1.1) translateY(-5px);
+}
+.si-wa:hover {
+  color: #25d366;
+}
+.si-ig:hover {
+  color: #e1306c;
+}
+
+.footer {
+  background: #000;
+  padding: 40px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.footer-text {
+  color: #ffffff !important;
+  opacity: 0.8;
+  font-size: 0.8rem;
+}
+
+.btn-custom {
+  padding: 8px 25px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  transition: 0.3s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+.float-anim {
+  animation: float 4s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        background-size: contain; 
+        background-position: top center;
+        background-color: #000;
+        padding-top: 50%; /* Menyesuaikan agar teks muncul di bawah foto */
+    }
+}
+
+/* --- FAQ INTERACTIVE STYLE --- */
+.faq-box {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.faq-item {
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding: 15px 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.faq-item:last-child { border-bottom: none; }
+
+.faq-item:hover { background: rgba(255,255,255,0.02); }
+
+.faq-question h6 {
+    color: var(--accent);
+    transition: 0.3s;
+}
+
+.icon-arrow {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    transition: 0.5s ease;
+}
+
+/* Sembunyikan jawaban secara default */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+}
+
+/* State Aktif */
+.faq-item.active .faq-answer {
+    max-height: 500px; /* Nilai besar agar konten terlihat */
+    transition: max-height 0.5s cubic-bezier(1, 0, 1, 0);
+}
+
+.faq-item.active .icon-arrow {
+    transform: rotate(180deg);
+    color: var(--accent);
+}
+
+.faq-item.active .faq-question h6 {
+    color: #fff;
+}
+
+/* Atur ukuran logo di navbar */
+.nav-logo {
+    height: 35px; /* Sesuaikan tingginya sesuai keinginan kamu */
+    width: auto;  /* Biar lebarnya otomatis dan gak gepeng */
+    transition: 0.3s ease;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2)); /* Efek glow tipis */
+}
+
+/* Biar pas di hover ada interaksi sedikit */
+.nav-logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 10px var(--accent));
+}
+
+/* Responsif buat HP: kalau layar kecil, logonya bisa dikecilkan sedikit */
+@media (max-width: 576px) {
+    .nav-logo {
+        height: 28px;
+    }
+}
